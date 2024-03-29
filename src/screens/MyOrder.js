@@ -7,7 +7,7 @@ export default function MyOrder() {
 
     const fetchMyOrder = async () => {
         console.log(localStorage.getItem('userEmail'))
-        await fetch("https://go-food-mu.vercel.app/api/myorderdata", {
+        await fetch("http://localhost:5000/api/myorderdata", {
             // credentials: 'include',
             // Origin:"http://localhost:3000/login",
             method: 'POST',
