@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatchCart,useCart } from './ContextReducer';
+import './card.css';
+import { Checkmark } from 'react-checkmark'
 export default function Card(props) {
     let dispatch= useDispatchCart();
     let data=useCart()
@@ -9,32 +11,41 @@ export default function Card(props) {
     let priceOptions = Object.keys(options);
     const [qty,setQty] = useState(1)
     const [size,setSize] = useState("")
+    const [showPopup, setShowPopup] = useState(false);
     const handleAddToCart=async()=>{
+        setShowPopup(true);
+        setTimeout(() => {
+        setShowPopup(false);
+        }, 1700); // Hide the popup after 3 seconds
         let food =[]
         for(const item of data){
             console.log(item);
             console.log(foodItem);
             if(item.id===foodItem._id){
                 food = item;
-
                 break;
             }
         }
-        if(food!==[]){
+        console.log("food");
+        console.log(food);
+        if(food!=[]){
             if(food.size===size){
+                console.log("foodItem.img");
+                console.log(foodItem.img);
                 await dispatch({type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty})
                 return
             }
             else if(food.size !== size){
-                await dispatch({type:"ADD",id:foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size})
+                console.log("foodItem.img");
+                console.log(foodItem.img);
+                await dispatch({type:"ADD",id:foodItem._id, name: foodItem.name, img: foodItem.img, price: finalPrice, qty: qty, size: size})
                 console.log("Size different so simply ADD one more to the list")
                 return
             }
             return
             
         }
-            await dispatch({type:"ADD",id:foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size})
-            // console.log(data)
+            await dispatch({type:"ADD",id:foodItem._id,name: foodItem.name, img: foodItem.img, price: finalPrice, qty: qty, size: size})
  }
     let finalPrice = qty * parseInt(options[size]);
 
@@ -67,6 +78,12 @@ export default function Card(props) {
                     <hr>
                     </hr>
                     <button className='btn btn-success justify-center ms-2' onClick={handleAddToCart}>Add to Cart</button>
+                    {showPopup && (
+                        <div className="popup">
+                        <Checkmark size='30px' color='green' />
+                        {/* <p>Item added to cart!</p> */}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

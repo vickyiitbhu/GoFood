@@ -53,6 +53,8 @@ export default function Cart() {
             </tr>
           </thead>
           <tbody>
+          {console.log("data in cart")}
+            {console.log(data)}
             {data.map((food, index) => (
               <tr>
                 <th scope='row' >{index + 1}</th>

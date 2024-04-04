@@ -9,7 +9,6 @@ export default function Home() {
   const [search, setSearch] = useState('');
   const [foodCat, setfoodCat] = useState([]);
   const [foodItem, setfooditem] = useState([]);
-
   const loadData = async () => {
     let response = await fetch("http://localhost:5000/api/foodData", {
       method: "POST",
@@ -17,7 +16,10 @@ export default function Home() {
         'Content-Type': 'application/json'
       }
     });
+    // console.log(response);
     response = await response.json()
+    console.log(response);
+    // console.log(" am printing"+response);
     setfooditem(response[0]);
     setfoodCat(response[1]);
     // console.log(response[0],response[1]);
@@ -26,8 +28,7 @@ export default function Home() {
   useEffect(() => {
     loadData()
   }, [])
-
-
+console.log("HELLO HOME");
   return (
     <>
       <div><Navbar /></div>
@@ -61,8 +62,8 @@ export default function Home() {
         </div>
       </div></div>
       <div className='container'>
-        {
-          foodCat !== []
+        {          
+          foodCat 
             ? foodCat.map((data) => {
               return (
                 <div className='row mb-3'>
@@ -71,7 +72,7 @@ export default function Home() {
                   </div>
                   <hr />
                   {
-                    foodItem !== []
+                    foodItem
                       ?
                       foodItem.filter((item) => (item.CategoryName === data.CategoryName)&&(item.name.toLowerCase().includes(search.toLocaleLowerCase())))
                         .map(filterItems => {

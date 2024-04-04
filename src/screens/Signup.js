@@ -13,6 +13,7 @@ export default function SignUp() {
                 },
                 body:JSON.stringify({name:credentials.name,email:credentials.email,password:credentials.password,location:credentials.geolocation})
             })
+            console.log(response);
             const json= await response.json()
             console.log(json);
             if(!json.success){

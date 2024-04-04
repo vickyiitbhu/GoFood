@@ -15,7 +15,7 @@ import 'bootstrap-dark-5/dist/css/bootstrap-dark.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
 import { CartProvider } from './components/ContextReducer';
-import MyOrder from './screens/MyOrder';
+import MyOrder from './screens/Myorderscopy.js';
 function App() {
   console.log("hello world");
   return (
