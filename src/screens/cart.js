@@ -12,10 +12,18 @@ export default function Cart() {
     )
   }
 
+  // Function to format date as "day/month/year hour:minute AM/PM"
+  function formatOrderDate(date) {
+    const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true };
+    return date.toLocaleDateString('en-US', options);
+}
+
+
   const handleCheckOut = async()=>{
     let userEmail = localStorage.getItem("userEmail");
     console.log("data:",data)
     console.log("userEmail",userEmail)
+    const orderDate = formatOrderDate(new Date());
     let response = await fetch("http://localhost:5000/api/orderdata",{
       method: 'POST',
       headers:{
@@ -24,7 +32,7 @@ export default function Cart() {
       body: JSON.stringify({
         order_data: data,
         email:userEmail,
-        order_date: new Date().toDateString()
+        order_date: orderDate
       })
     }
     )

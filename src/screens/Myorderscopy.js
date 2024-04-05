@@ -75,7 +75,9 @@ export default function MyOrder() {
                                                     for (let j = 1; j < orderData[i].length; j++) {
                                                         jsxElements1.push(
                                                             <div key={`item-${i}-${j}`} className='particular_item'>
-                                                                <div className='particular_item_image'></div>
+                                                                <div className='particular_item_image'>
+                                                                <img src={orderData[i][j].img} alt={orderData[i][j].name} width="100%" height="100%"/>
+                                                                </div>
                                                                 <div className='particular_item_data'>
                                                                     <h5>{orderData[i][j].name}</h5>
                                                                     <p className='qty_size'>{orderData[i][j].qty}|{orderData[i][j].size}|Rs:{orderData[i][j].price}/-</p>

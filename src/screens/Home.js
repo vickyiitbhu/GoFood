@@ -42,13 +42,13 @@ console.log("HELLO HOME");
               </div>
             </div>
             <div className="carousel-item active">
-              <img src="https://source.unsplash.com/random/1000x1000/?water" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/1256x500/?food" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/1256x1256/?rain" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/1256x1256/?food" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://source.unsplash.com/random/1256x1256/?sea" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://source.unsplash.com/random/1256x1257/?food" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

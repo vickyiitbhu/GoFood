@@ -65,7 +65,7 @@
 .particular_item_image{
   height: 71.25px;
   aspect-ratio: 1 / 1;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: auto;
   margin-top: 2px;
   margin-left: 0px;

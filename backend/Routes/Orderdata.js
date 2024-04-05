@@ -3,7 +3,11 @@ const router = express.Router()
 const Order = require('../models/Orders')
 
 router.post('/orderdata', async(req,res)=>{
+    
+    // console.log(req);
     let data = req.body.order_data
+    console.log("Request for order");
+    console.log(data);
     if (!data) {
         data = [];
       }
